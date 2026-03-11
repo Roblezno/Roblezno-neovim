@@ -15,9 +15,9 @@ return {
   -- mason-lspconfig hace de puente entre los lsp y nvim
   {
     "mason-org/mason-lspconfig.nvim",
-    dependencies = { 
-      "mason-org/mason.nvim", 
-      "neovim/nvim-lspconfig" 
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig"
     },
     config = function()
       -- AJUSTES ESPECÍFICOS (Antes de arrancar los servidores)
@@ -31,13 +31,16 @@ return {
       })
 
       -- ARRANQUE AUTOMÁTICO
-      -- En la versión 2.0+, al llamar a .setup(), mason-lspconfig 
+      -- En la versión 2.0+, al llamar a .setup(), mason-lspconfig
       -- automáticamente ejecuta vim.lsp.enable() para todo lo que esté instalado.
       -- No hacen falta setup handlers adicionales
       require("mason-lspconfig").setup({
-        ensure_installed = { 
-          "lua_ls", 
-          "pyright" 
+        ensure_installed = {
+          "lua_ls",
+          "pyright",
+          "bashls",
+          "marksman",
+          "r_language_server"
         },
       })
     end

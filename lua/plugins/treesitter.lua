@@ -11,7 +11,8 @@ return {
     -- a la función install(). Es asíncrona y no hará nada si ya están instalados.
     ts.install({
       "c", "lua", "vim", "vimdoc", "query",
-      "javascript", "html", "python"
+      "javascript", "html", "python", "bash",
+      "markdown", "markdown_inline", "r"
     })
 
     -- 2. ACTIVAR EL RESALTADO DE SINTAXIS
