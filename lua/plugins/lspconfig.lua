@@ -39,8 +39,8 @@ return {
           "lua_ls",
           "pyright",
           "bashls",
-          "marksman",
-          "r_language_server"
+          "r_language_server",
+          "marksman"
         },
       })
     end

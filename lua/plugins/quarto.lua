@@ -34,7 +34,7 @@ return {
         vim.keymap.set("n", "<leader>rc", runner.run_cell,  { desc = "Quarto: Ejecutar celda actual", silent = true })
         vim.keymap.set("n", "<leader>ra", runner.run_above, { desc = "Quarto: Ejecutar celda y anteriores", silent = true })
         vim.keymap.set("n", "<leader>rA", runner.run_all,   { desc = "Quarto: Ejecutar todas las celdas", silent = true })
-        vim.keymap.set("n", "<leader>rl", runner.run_line,  { desc = "Ejecutar línea actual", silent = true })
+        vim.keymap.set({"n", "x"}, "<leader>rl", runner.run_line,  { desc = "Ejecutar línea actual", silent = true })
         -- Este atajo invoca el menú de configuración nativo de Slime
         vim.keymap.set("n", "<leader>rs", "<Plug>SlimeConfig", { desc = "Seleccionar terminal destino (Slime)" })
       end

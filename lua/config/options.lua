@@ -102,18 +102,41 @@ vim.opt.foldlevel = 99 -- Keep all folds open by default
 vim.opt.splitbelow = true -- Horizontal splits open below
 vim.opt.splitright = true -- Vertical splits open to the right
 
+-- Default diagnostic custom / no plugins
+--vim.diagnostic.config({
+--  virtual_text = {
+--    prefix = '■',-- Could be '■', '▎', 'x', '●',
+--    spacing = 4,
+--  },
+--  signs = true,
+--  underline = true,
+--  update_in_insert = false, -- Set to true to update while typing
+--  severity_sort = true,
+--})
+local diagnostic_signs = {
+	Error = " ",
+	Warn = " ",
+	Hint = "",
+	Info = "",
+}
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '■',-- Could be '■', '▎', 'x', '●',
-    spacing = 4,
-  },
-  signs = true,
-  underline = true,
-  update_in_insert = false, -- Set to true to update while typing
-  severity_sort = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = diagnostic_signs.Error,
+            [vim.diagnostic.severity.WARN]  = diagnostic_signs.Warn,
+            [vim.diagnostic.severity.INFO]  = diagnostic_signs.Info,
+            [vim.diagnostic.severity.HINT]  = diagnostic_signs.Hint,
+        },
+        -- Opcional: puedes configurar también el resaltado o si quieres que 
+        -- el texto del código se subraye, etc.
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+        },
+        numhl = {
+            [vim.diagnostic.severity.WARN] = 'WarningMsg',
+        },
+    },
 })
-
-
 
 
