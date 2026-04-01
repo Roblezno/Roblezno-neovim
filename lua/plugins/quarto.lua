@@ -37,6 +37,8 @@ return {
         vim.keymap.set({"n", "x"}, "<leader>rl", runner.run_line,  { desc = "Ejecutar línea actual", silent = true })
         -- Este atajo invoca el menú de configuración nativo de Slime
         vim.keymap.set("n", "<leader>rs", "<Plug>SlimeConfig", { desc = "Seleccionar terminal destino (Slime)" })
+        -- Ejecutar bloques de código seleccionados en modo VISUAL
+        vim.keymap.set("x", "<leader>rv", "<Plug>SlimeRegionSend", { desc = "Ejecutar selección visual", silent = true })
       end
     }
 }

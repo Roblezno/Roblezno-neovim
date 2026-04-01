@@ -5,17 +5,26 @@ return {
         ft = { 'markdown', 'quarto' }, -- Cargar solo en estos archivos
         opts = {
             file_types = { 'markdown', 'quarto' },
-            code = {
-                sign = false,
-                width = 'block', -- Para que ocupe todo el ancho 
-                right_pad = 1,
+            -- Prevents line from de-rendering in markdown files while in "visual mode"
+            anti_conceal = {
+                enabled = false
+            },
+            win_options = {
+                concealcursor = {
+                    -- 'n' = Normal, 'v' = Visual, 'i' = Insert, 'c' = Command
+                    -- Usar 'nc' mantiene la línea renderizada al navegar (Normal), pero 
+                    -- te muestra el markdown crudo si entras a editar (Insert).
+                    -- Si quieres que esté renderizado SIEMPRE (incluso al editar), usa 'nvic'.
+                    rendered = 'nc', 
+                },
             },
         },
-        -- Configuración de los colores de bloques
-        config = function (_, opts)
-            require('render-markdown').setup(opts)
-            vim.api.nvim_set_hl(0, 'RenderMarkdownCode', {bg = '#092436'})
-            vim.api.nvim_set_hl(0, 'RenderMarkdownInline', {bg = '#1F2426'})
-        end
+        keys = {
+            {
+                "<leader>mt", -- Cambia esto por el atajo que prefieras (ej. Toggle Markdown)
+                "<cmd>RenderMarkdown toggle<CR>",
+                desc = "Alternar vista renderizada de Markdown/Quarto",
+            },
+        },
     }
 }
