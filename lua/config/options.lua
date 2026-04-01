@@ -141,4 +141,13 @@ vim.diagnostic.config({
 
 
 -- Borde de ventanas flotantes
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#7dcfff" })
+--vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#7dcfff" })
+--
+---- Forzar colores de render-markdown independientemente del tema o el orden de carga
+--vim.api.nvim_create_autocmd("ColorScheme", {
+--    pattern = "*",
+--    callback = function()
+--        vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#1f2335", force = true })
+--        vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = "#1f2335", force = true })
+--    end,
+--})

@@ -11,10 +11,10 @@ return {
     },
     on_highlights = function(hl, c)
             -- c.bg_highlight equivale a #292e42 automáticamente
-            hl.RenderMarkdownCode = { bg = c.bg_highlight } 
+            hl.RenderMarkdownCode = { bg = "#1f2335" } 
             
             -- Opcional: Si también quieres que el código en línea (`texto`) tenga ese fondo
-            hl.RenderMarkdownCodeInline = { bg = c.bg_highlight }
+            hl.RenderMarkdownCodeInline = { bg = "#1f2335" }
         end,
   },
   config = function(_, opts)
