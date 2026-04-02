@@ -31,14 +31,9 @@ return {
           },
         })
         local runner = require("quarto.runner")
-        vim.keymap.set("n", "<leader>rc", runner.run_cell,  { desc = "Quarto: Ejecutar celda actual", silent = true })
-        vim.keymap.set("n", "<leader>ra", runner.run_above, { desc = "Quarto: Ejecutar celda y anteriores", silent = true })
-        vim.keymap.set("n", "<leader>rA", runner.run_all,   { desc = "Quarto: Ejecutar todas las celdas", silent = true })
-        vim.keymap.set({"n", "x"}, "<leader>rl", runner.run_line,  { desc = "Ejecutar línea actual", silent = true })
-        -- Este atajo invoca el menú de configuración nativo de Slime
-        vim.keymap.set("n", "<leader>rs", "<Plug>SlimeConfig", { desc = "Seleccionar terminal destino (Slime)" })
-        -- Ejecutar bloques de código seleccionados en modo VISUAL
-        vim.keymap.set("x", "<leader>rv", "<Plug>SlimeRegionSend", { desc = "Ejecutar selección visual", silent = true })
-      end
+        vim.keymap.set("n", "<leader>mc", runner.run_cell,  { desc = "Quarto: Ejecutar celda actual", silent = true })
+        vim.keymap.set("n", "<leader>ma", runner.run_above, { desc = "Quarto: Ejecutar celda y anteriores", silent = true })
+        vim.keymap.set("n", "<leader>mA", runner.run_all,   { desc = "Quarto: Ejecutar todas las celdas", silent = true })
+        end
     }
 }
