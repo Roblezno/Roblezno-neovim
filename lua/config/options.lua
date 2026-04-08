@@ -26,7 +26,7 @@ vim.opt.grepformat = "%f:%l:%c:%m" -- filename, line number, column, content
 -- Search Settings
 vim.opt.ignorecase = true -- Case-insensitive search
 vim.opt.smartcase = true -- Case-sensitive if uppercase in search
---vim.opt.hlsearch = false -- Don't highlight search results
+vim.opt.hlsearch = false -- Don't highlight search results
 vim.opt.incsearch = true -- Show matches as you type
 
 -- Visual Settings
