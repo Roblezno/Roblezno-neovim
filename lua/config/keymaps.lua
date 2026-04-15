@@ -72,3 +72,32 @@ vim.keymap.set('n', '<leader>thp', '<cmd>split | term python3<CR>', { desc = 'Te
 
 -- Terminal Flotante
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm<CR>', {desc = 'Terminal Flotante'})
+
+
+-- ==========================================
+-- ATAJOS PARA BLOQUES DE CÓDIGO (QMD/RMD)
+-- ==========================================
+
+-- Bloque de Python
+vim.keymap.set('n', '<leader>mp', function()
+  -- Inserta las 3 líneas del bloque
+  vim.api.nvim_put({"```{python}", "", "```"}, "l", true, true)
+  -- Sube el cursor una línea para quedar en medio
+  vim.cmd("normal! k")
+  vim.cmd("normal! k")
+  -- Entra en modo inserción
+  vim.cmd("startinsert")
+end, { desc = 'Insertar bloque de Python' })
+
+-- Bloque de R
+vim.keymap.set('n', '<leader>mr', function()
+  -- Inserta las líneas del bloque y 2 líneas vacías dentro
+  vim.api.nvim_put({"```{r}", "", "```"}, "l", true, true)
+  -- Sube el cursor dos líneas para quedar en medio
+  vim.cmd("normal! k")
+  vim.cmd("normal! k")
+  -- Entra en modo inserción
+  vim.cmd("startinsert")
+end, { desc = 'Insertar bloque de R' })
+
+
