@@ -55,7 +55,7 @@ vim.keymap.set("n", "<leader>rs", "<Plug>SlimeConfig", { desc = "Seleccionar ter
 -- Ejecutar bloques de código seleccionados en modo VISUAL
 vim.keymap.set("x", "<leader>rv", "<Plug>SlimeRegionSend", { desc = "Ejecutar selección visual", silent = true })
 -- Ejecutar líneas de código en modos NORMAL y INSERT 
-vim.keymap.set({"n", "x"}, "<leader>rl", "<Plug>SlimeSend<CR>" ,{ desc = "Ejecutar línea actual", silent = true })
+vim.keymap.set("n", "<leader>rl", "<cmd>SlimeSend<CR>" ,{ desc = "Ejecutar línea actual", silent = true })
 -- Salir del Modo terminal
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Salir del modo terminal al modo normal' })
 -- Terminal normal
