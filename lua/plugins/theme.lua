@@ -1,26 +1,100 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    transparent = true, -- Activa el fondo transparente
-    styles = {
-      -- Opcional: También hace transparentes los paneles laterales y ventanas flotantes
-      sidebars = "transparent",
-      floats = "transparent",
-    },
-    on_highlights = function(hl, c)
-            -- c.bg_highlight equivale a #292e42 automáticamente
-            hl.RenderMarkdownCode = { bg = "#1f2335" } 
+    "AlexvZyl/nordic.nvim",
+    -- Es crucial que los temas no sean "lazy" (perezosos) y tengan alta prioridad
+    -- para que se carguen antes que el resto de la interfaz.
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("nordic").load({
+            -- Habilita el subrayado ondulado (undercurl)
+            undercurl = true,
             
-            -- Opcional: Si también quieres que el código en línea (`texto`) tenga ese fondo
-            hl.RenderMarkdownCodeInline = { bg = "#1f2335" }
-        end,
-  },
-  config = function(_, opts)
-      -- Inicializamos el tema con las opciones definidas arriba
-      require("tokyonight").setup(opts)
-      -- Aplicamos el tema
-      vim.cmd('colorscheme tokyonight-night')
-  end
+            -- Reduce la cantidad general de azul en el tema (lo hace un poco más cálido)
+            reduced_blue = true,
+            
+            -- Configuración de transparencia
+            transparent = {
+                -- Fondo transparente general
+                bg = true,
+                -- Fondo transparente para ventanas flotantes
+                float = true,
+            },
+
+            on_highlight = function(highlights, palette)
+                -- Comentarios claros
+                highlights.Comment = { fg = "#8B98AB", italic = true }
+
+                -- Forzar Bordes Blancos y Fondos Transparentes
+                -- Aplicamos a los grupos estándar y a los específicos de Noice
+                --local float_overrides = {
+                --    fg = "#FFFFFF", 
+                --    bg = "NONE", 
+                --}
+                highlights.FloatBorder = float_overrides
+                highlights.NormalFloat = { bg = "NONE" }
+                
+                highlights.RenderMarkdownCode = {bg = "#222630"}
+
+            end,
+
+            
+            -- Bordes más brillantes para elementos como ventanas flotantes
+            bright_border = true,
+            
+            -- Intercambia ciertos colores del tema
+            swap_colors = false,
+            
+            -- Sobrescribir colores específicos (puedes añadir códigos hex aquí)
+            override = {},
+            
+            -- Estilos de texto generales
+            bold = true,
+            italic = true,
+            underline = true,
+            
+            -- Estilos para grupos de sintaxis específicos
+            bold_keywords = true,
+            italic_comments = true,
+            
+            -- Configuración de la  línea del cursor (cursorline)
+            cursorline = {
+                -- Fuente en negrita en la línea del cursor
+                bold = false,
+                -- Número de línea en negrita
+                bold_number = true,
+                -- Estilos disponibles: 'dark', 'light'
+                theme = "dark",
+                -- Mezcla el fondo del cursorline con el fondo del buffer (0.0 a 1.0)
+                blend = 0.8,
+            },
+            
+            -- Integración con el plugin Noice
+            noice = {
+                -- Estilos disponibles: 'classic', 'flat'
+                style = "classic",
+            },
+            
+            -- Integración con Telescope
+            telescope = {
+                -- Estilos disponibles: 'classic', 'flat'
+                style = "flat",
+            },
+            
+            -- Integración con Leap
+            leap = {
+                -- Oscurece el fondo cuando se usa Leap
+                dim_backdrop = false,
+            },
+            
+            -- Integración con nvim-treesitter-context
+            ts_context = {
+                -- Oscurece el fondo de la ventana de contexto
+                dark_background = true,
+            },
+        })
+
+        -- Aplicamos el tema de Neovim inmediatamente después de cargarlo
+        vim.cmd.colorscheme("nordic")
+    end,
 }
+

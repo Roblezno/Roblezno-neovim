@@ -39,7 +39,7 @@ vim.opt.completeopt = "menuone,noinsert,noselect" -- Completion options
 vim.opt.showmode = false -- Don't show mode in command line
 vim.opt.pumheight = 10 -- Popup menu height
 vim.opt.pumblend = 10 -- Popup menu transparency
-vim.opt.winblend = 0 -- Floating window transparency
+--vim.opt.winblend = 0 -- Floating window transparency
 vim.opt.conceallevel = 0 -- Don't hide markup
 vim.opt.concealcursor = "" -- Show markup even on cursor line
 vim.opt.redrawtime = 10000 -- Timeout for syntax highlighting redraw
@@ -138,16 +138,3 @@ vim.diagnostic.config({
         },
     },
 })
-
-
--- Borde de ventanas flotantes
---vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#7dcfff" })
---
----- Forzar colores de render-markdown independientemente del tema o el orden de carga
---vim.api.nvim_create_autocmd("ColorScheme", {
---    pattern = "*",
---    callback = function()
---        vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#1f2335", force = true })
---        vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = "#1f2335", force = true })
---    end,
---})

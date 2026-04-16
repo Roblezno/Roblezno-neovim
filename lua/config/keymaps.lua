@@ -45,7 +45,17 @@ vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle Fil
 vim.keymap.set('n', '<m-i>', 'i```{}<cr>```<esc>O', {desc = '[i]nsert code chunk'})
 
 -- Force hints to display with base config, not affected by quarto formatting
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Display floating window hint' })
+--vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Display floating window hint' })
+
+-- Atajo para Hover (tecla K)
+vim.keymap.set('n', 'K', function()
+  vim.lsp.buf.hover({ border = 'single' })
+end, { desc = 'Display floating window hint' })
+
+-- Atajo para Signature Help (ayuda de firmas, si tienes alguno)
+vim.keymap.set('n', '<C-k>', function()
+  vim.lsp.buf.signature_help({ border = 'single' })
+end, { desc = 'Display signature information' })
 
 
 -- NOTE: Keymaps para manejo de terminales

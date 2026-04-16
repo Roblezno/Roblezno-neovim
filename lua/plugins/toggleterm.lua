@@ -10,7 +10,7 @@ return{
       -- Configuración visual de la ventana flotante
       float_opts = {
         border = "curved", -- Opciones: 'single', 'double', 'shadow', 'curved'
-        winblend = 3,      -- Nivel de transparencia (0 es opaco, 100 es invisible)
+        winblend = 0,      -- Nivel de transparencia (0 es opaco, 100 es invisible)
         title_pos = "center"
       },
       

@@ -18,6 +18,17 @@ return {
                 end,
             },
 
+            window = {
+                completion = cmp.config.window.bordered({
+                    border = "single",
+                    winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+                }),
+                documentation = cmp.config.window.bordered({
+                    border = 'single',
+                    winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',    
+                }),
+            },
+
             mapping = cmp.mapping.preset.insert({
                 ['<C-Space>'] = cmp.mapping.complete(), -- Forzar que se abra el menú
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Enter para aceptar

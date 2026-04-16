@@ -3,7 +3,7 @@ return {
       "quarto-dev/quarto-nvim",
       dependencies = {
         "jmbuhr/otter.nvim",
-        "nvim-lua/plenary.nvim",
+       -- "nvim-lua/plenary.nvim",
         "neovim/nvim-lspconfig",
         "nvim-treesitter/nvim-treesitter",
       },

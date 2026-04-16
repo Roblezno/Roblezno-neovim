@@ -41,15 +41,12 @@ require("lazy").setup({
 	},
 	rtp = {
 		disabled_plugins = {
-			"netrw",
-			"netrwPlugin",
 		},
 	},
 	install = {
     -- Color theme
 		colorscheme = {
-			-- "melange"
-			"tokyonight-night",
+			"nordic",
 		},
 	},
   -- automatically check for plugin updates

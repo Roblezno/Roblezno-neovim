@@ -10,8 +10,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				-- theme = "melange",
-				theme = "tokyonight-night",
+				theme = "nordic",
 				icons_enabled = true,
 				section_separators = { left = "", right = "" },
 				component_separators = "|",
