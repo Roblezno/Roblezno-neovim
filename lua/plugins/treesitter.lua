@@ -11,7 +11,7 @@ return {
     -- a la función install(). Es asíncrona y no hará nada si ya están instalados.
     ts.install({
       "c", "lua", "vim", "vimdoc", "query",
-      "javascript", "html", "python", "bash",
+      "javascript", "html", "css", "python", "bash",
       "markdown", "markdown_inline", "r"
     })
 
