@@ -20,6 +20,15 @@ return {
       "neovim/nvim-lspconfig"
     },
     config = function()
+      -- Función para detectar el entorno de conda activo
+      local function get_python_path(workspace)
+        if vim.env.CONDA_PREFIX then
+          return vim.env.CONDA_PREFIX .. '/bin/python'
+        end
+        return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+      end
+
+
       -- AJUSTES ESPECÍFICOS (Antes de arrancar los servidores)
       -- Usamos la API nativa de Neovim 0.11 para modificar servidores concretos
       vim.lsp.config("lua_ls", {
@@ -29,6 +38,21 @@ return {
           }
         }
       })
+
+      vim.lsp.config("pyright", {
+        on_new_config = function(new_config, new_root_dir)
+          -- Aseguramos que las tablas existan para evitar errores
+          new_config.settings = new_config.settings or {}
+          new_config.settings.python = new_config.settings.python or {}
+          
+          -- Asignamos la ruta detectada
+          new_config.settings.python.pythonPath = get_python_path(new_root_dir)
+        end,
+      })
+
+
+      -- Pyright config para cargar python en el entorno de conda activo
+      -- on_new_config para inyectar la ruta de python justo antes de que arranque
 
       -- ARRANQUE AUTOMÁTICO
       -- En la versión 2.0+, al llamar a .setup(), mason-lspconfig
